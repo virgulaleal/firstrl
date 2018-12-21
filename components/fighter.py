@@ -19,6 +19,9 @@ class Fighter:
 
 		return results
 
+	def heal(self, amount):
+		self.hp = min(self.max_hp, self.hp + amount)
+
 	def attack(self, target):
 		results = []
 
