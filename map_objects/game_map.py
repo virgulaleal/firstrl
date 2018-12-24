@@ -16,6 +16,7 @@ from map_objects.tile import Tile
 
 from render_functions import RenderOrder
 
+
 class GameMap:
 	def __init__(self, width, height):
 		self.width = width
@@ -33,10 +34,10 @@ class GameMap:
 		num_rooms = 0
 
 		for r in range(max_rooms):
-			# Random width an height
+			# Random width and height
 			w = randint(room_min_size, room_max_size)
 			h = randint(room_min_size, room_max_size)
-			# Random position going out of the boundaries of the map
+			# Random position without going out of the boundaries of the map
 			x = randint(0, map_width - w - 1)
 			y = randint(0, map_height - h - 1)
 
@@ -70,8 +71,12 @@ class GameMap:
 					# Flip a coin (random number that is either 0 or 1)
 					if randint(0, 1) == 1:
 						# First move horizontally, then vertically
+						self.create_h_tunnel(prev_x, new_x, prev_y)
+						self.create_v_tunnel(prev_y, new_y, new_x)
+					else:
+						# Frist move vertically, then horizontally
 						self.create_v_tunnel(prev_y, new_y, prev_x)
-						self.create_h_tunnel(prev_x, new_x, new_y)
+						self.create_h_tunnel(prev_x, nex_x, new_y)
 
 				self.place_entities(new_room, entities, max_monsters_per_room, max_items_per_room)
 
