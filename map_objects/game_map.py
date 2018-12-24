@@ -74,7 +74,7 @@ class GameMap:
 						self.create_h_tunnel(prev_x, new_x, prev_y)
 						self.create_v_tunnel(prev_y, new_y, new_x)
 					else:
-						# Frist move vertically, then horizontally
+						# First move vertically, then horizontally
 						self.create_v_tunnel(prev_y, new_y, prev_x)
 						self.create_h_tunnel(prev_x, nex_x, new_y)
 
