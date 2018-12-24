@@ -76,7 +76,7 @@ class GameMap:
 					else:
 						# First move vertically, then horizontally
 						self.create_v_tunnel(prev_y, new_y, prev_x)
-						self.create_h_tunnel(prev_x, nex_x, new_y)
+						self.create_h_tunnel(prev_x, new_x, new_y)
 
 				self.place_entities(new_room, entities, max_monsters_per_room, max_items_per_room)
 
