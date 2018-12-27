@@ -46,6 +46,7 @@ def play_game(player, entities, game_map, message_log, game_state, con, panel, c
 		mouse_action = handle_mouse(mouse)
 
 		move = action.get("move")
+		wait = action.get("wait")
 		pickup = action.get("pickup")
 		show_inventory = action.get("show_inventory")
 		drop_inventory = action.get("drop_inventory")
@@ -78,6 +79,9 @@ def play_game(player, entities, game_map, message_log, game_state, con, panel, c
 					fov_recompute = True
 
 				game_state = GameStates.ENEMY_TURN
+
+		elif wait:
+			game_state = GameStates.ENEMY_TURN
 
 		elif pickup and game_state == GameStates.PLAYERS_TURN:
 			for entity in entities:
