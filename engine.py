@@ -20,8 +20,9 @@ def play_game(player, entities, game_map, message_log, game_state, con, panel, c
 	key = libtcod.Key()
 	mouse = libtcod.Mouse()
 
-	game_state = GameStates.PLAYERS_TURN
-	previous_game_state = game_state
+	if game_state != GameStates.PLAYER_DEAD:
+		game_state = GameStates.PLAYERS_TURN
+		previous_game_state = game_state
 
 	targeting_item = None
 
